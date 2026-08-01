@@ -12,15 +12,15 @@ jobs:
         node: [24]
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node }}
           registry-url: "https://registry.npmjs.org"
       - name: Cache node modules
         id: cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: |
             **/node_modules
@@ -69,13 +69,13 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: 7z x build.tar && del build.tar
       - name: Use Node.js ${{ matrix.nodeRun }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.nodeRun }}
           registry-url: "https://registry.npmjs.org"
       - name: Cache node modules
         id: cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: |
             **/node_modules
